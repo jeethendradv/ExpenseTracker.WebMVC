@@ -1,0 +1,5 @@
+﻿@model ExpenseTrackerWeb.Models.TransactionViewModel
+@{ 
+    Layout = null;
+}
+@Html.DropDownListFor(m => m.CategoryId, Model.Categories, new { @class = "form-control" })

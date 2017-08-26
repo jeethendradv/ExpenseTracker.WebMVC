@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1303533-981E-40EB-BD1B-6CBD71DD07D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExpenseTrackerWeb.Business</RootNamespace>
+    <AssemblyName>ExpenseTrackerWeb.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication.cs" />
+    <Compile Include="AutomapperConfig.cs" />
+    <Compile Include="BaseBuilder.cs" />
+    <Compile Include="Connected Services\ExpenseTrackerAuthenticationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ExpenseTrackerRegistrationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ExpenseTrackerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs" />
+    <Compile Include="StreamHelper.cs" />
+    <Compile Include="TransactionBuilder.cs" />
+    <Compile Include="UserBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\AuthenticationService.wsdl" />
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\AuthenticationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\AuthenticationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\AuthenticationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\ExpenseTrackerWeb.Business.ExpenseTrackerAuthenticationService.AuthenticateResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\ExpenseTrackerWeb.Business.ExpenseTrackerRegistrationService.UserValidationDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\RegistrationService.wsdl" />
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\RegistrationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\RegistrationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\RegistrationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerService.wsdl" />
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionCategoryDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ExpenseTrackerAuthenticationService\" />
+    <WCFMetadataStorage Include="Connected Services\ExpenseTrackerRegistrationService\" />
+    <WCFMetadataStorage Include="Connected Services\ExpenseTrackerService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseTrackerWeb.BusinessObjects\ExpenseTrackerWeb.BusinessObjects.csproj">
+      <Project>{0ec5ca8e-29e2-480e-9726-4e05f6e0f13f}</Project>
+      <Name>ExpenseTrackerWeb.BusinessObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\RegistrationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerRegistrationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\AuthenticationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerAuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerService\ExpenseTrackerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExpenseTrackerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,68 @@
+﻿@model ExpenseTrackerWeb.Models.TransactionViewModel
+
+<div id="login-overlay" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Add Transaction</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well">
+                        @using (Html.BeginForm("Create", "Transaction", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <label for="TransactionAmount" class="control-label">Amount</label>
+                                @Html.TextBoxFor(m => m.TransactionAmount, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.TransactionAmount)
+                            </div>
+                            <div class="form-group">
+                                <label for="TransactionDate" class="control-label">Date</label>
+                                @Html.TextBoxFor(m => m.TransactionDate, new { @class = "form-control", id= "transactionDate" })
+                                @Html.ValidationMessageFor(m => m.TransactionDate)
+                            </div>
+                            <div class="form-group">
+                                <label for="CategoryId" class="control-label">Category</label>
+                                <div class="allcategories">
+                                    @Html.DropDownListFor(m => m.CategoryId, Model.Categories, new { @class = "form-control" })
+                                </div>
+                                <a href="#" class="btn btn-primary btn-sm addCategory">Add Category</a>
+                                @Html.ValidationMessageFor(m => m.CategoryId)
+                            </div>
+                            <div class="form-group">
+                                <label for="TransactionNote" class="control-label">Note</label>
+                                @Html.TextAreaFor(m => m.TransactionNote, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.TransactionNote)
+                            </div>
+                            <div class="form-group">
+                                <label for="TransactionReceipts" class="control-label">Upload Receipts</label>
+                                <input type="file" id="TransactionReceipts" name="TransactionReceipts" multiple="multiple"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide">
+    <div id="addCategory" title="Add Category">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="TransactionAmount" class="control-label">Category Name</label>
+                    <input type="text" class="form-control" id="newCategory"/>
+                    <span class="field-validation-error hide categoryrequirederror">Please enter the category name.</span>
+                    <span class="field-validation-error hide categoryexistserror">Category already exists.</span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary saveCategory">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

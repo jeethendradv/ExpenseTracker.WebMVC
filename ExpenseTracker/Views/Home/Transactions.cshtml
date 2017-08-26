@@ -1,0 +1,43 @@
+﻿@model ExpenseTrackerWeb.Models.UserTransactionViewModel
+@{ 
+    Layout = null;
+}
+
+<div class="col-md-6 col-custom1">
+    <table class="table">
+        <thead class="thead-custom">
+            <tr>
+                <th>Date</th>
+                <th>Expenses</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transactionItem in Model.Transactions)
+            {
+                <tr>
+                    <td>@transactionItem.TransactionDate.ToShortDateString()</td>
+                    <td>@transactionItem.TransactionName</td>
+                    <td>$@transactionItem.TransactionAmount</td>
+                    <td align="right">
+                        @if (transactionItem.HasReceipts)
+                        {
+                            <span class="glyphicon glyphicon-picture hoverHand"></span>
+                        }
+                        <span class="glyphicon glyphicon-pencil hoverHand"></span>
+                        <span class="glyphicon glyphicon-remove hoverHand"></span>                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@{ 
+    Random r = new Random();
+    int key = r.Next(1, 1000);
+}
+<div class="col-md-6">
+    <img src="~/_ChartFiles/chart.jpg?key=@key" />
+</div>
+<input type="hidden" id="totalExpHidden" value="@Model.TotalExpense"/>

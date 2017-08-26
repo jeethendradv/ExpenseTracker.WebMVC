@@ -1,0 +1,76 @@
+﻿@model ExpenseTrackerWeb.Models.UserTransactionViewModel
+@using ExpenseTrackerWeb.BusinessObjects.Extensions
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6 control-group col-custom">
+        <fieldset>
+            <div class="controlgroup">                
+                <label for="expense-weekly">Weekly</label>
+                <input type="radio" value="1" name="expensePeriod" checked id="expense-weekly">
+                <label for="expense-monthly">Monthly</label>
+                <input type="radio" value="2" name="expensePeriod" id="expense-monthly">
+                <label for="expense-yearly">Yearly</label>
+                <input type="radio" value="3" name="expensePeriod" id="expense-yearly">                
+            </div>
+        </fieldset>
+        <input type="hidden" id="startDate" value="@DateTime.Now.StartOfWeek().ToString("MM/dd/yyyy")"/>
+        <input type="hidden" id="endDate" value="@DateTime.Now.EndOfWeek().ToString("MM/dd/yyyy")" />
+    </div>
+    <div class="col-md-1 col-custom">
+        <a href="/Transaction/Create" class="btn btn-primary btn-sm">Add Expense</a>
+    </div>
+    <div class="col-md-5">
+        <h1 style="padding-left:35px;padding-bottom:5px" id="totalExpLabel">Total Expenses: $@Model.TotalExpense</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">        
+        <button type="button" id="previousTrans" class="btn btn-default btn-arrow-left">Previous</button>
+    </div>
+    <div class="col-md-2">
+        <label id="transactionPeriod"></label>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="nextTrans" class="btn btn-default btn-arrow-right">Next</button>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+
+<div class="row transactions">
+    <div class="col-md-6 col-custom1">
+        <table class="table">
+            <thead class="thead-custom">
+                <tr>
+                    <th>Date</th>
+                    <th>Expenses</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transactionItem in Model.Transactions)
+                {
+                <tr>
+                    <td>@transactionItem.TransactionDate.ToShortDateString()</td>
+                    <td>@transactionItem.TransactionName</td>
+                    <td>$@transactionItem.TransactionAmount</td>
+                    <td align="right">
+                        @if (transactionItem.HasReceipts)
+                        {
+                            <span class="glyphicon glyphicon-picture hoverHand"></span>
+                        }
+                        <span class="glyphicon glyphicon-pencil hoverHand"></span>
+                        <span class="glyphicon glyphicon-remove hoverHand"></span>                                                
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <img src="~/_ChartFiles/chart.jpg" />
+    </div>
+</div>

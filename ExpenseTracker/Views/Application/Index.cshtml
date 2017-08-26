@@ -1,0 +1,57 @@
+﻿
+@model ExpenseTrackerWeb.Models.LoginViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="login-overlay" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Login to Expense Tracker</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="well">
+                        @using (Html.BeginForm("Index", "Application", FormMethod.Post))
+                        {
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class="form-control"})
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        if (Model != null && Model.InvalidCredentials)
+                        {
+                            <div id="loginErrorMsg" class="alert-error">Incorrect username or password</div>
+                        }
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" id="remember"> Remember login
+                            </label>
+                            <p class="help-block">(if this is a private computer)</p>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                        <a href="/Application/Forgot" class="btn btn-default btn-block">Help to login</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                    <ul class="list-unstyled" style="line-height: 2">
+                        <li><span class="fa fa-check text-success"></span> Track all your expenses</li>
+                        <li><span class="fa fa-check text-success"></span> Get expense reports</li>
+                        <li><span class="fa fa-check text-success"></span> Track shared expenses</li>
+                        <li><span class="fa fa-check text-success"></span> Create groups</li>
+                        <li><span class="fa fa-check text-success"></span> Set budget goals</li>
+                    </ul>
+                    <p><a href="/Application/Register" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

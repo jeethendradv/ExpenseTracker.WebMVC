@@ -1,0 +1,64 @@
+﻿@model ExpenseTrackerWeb.Models.UserViewModel
+
+<div id="login-overlay" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Register</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well">
+                        @using (Html.BeginForm("Register", "Application", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="firstname" class="control-label">First Name</label>
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.FirstName)
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="control-label">Last Name</label>
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.LastName)
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="control-label">Email Address</label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="control-label">UserName</label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName)
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">Password</label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmpassword" class="control-label">Confirm Password</label>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                            </div>
+                            if (Model != null && !Model.IsValidUserName)
+                            {
+                                <div id="loginErrorMsg" class="alert-error">Username is not available for registration.please choose another one.</div>
+                            }
+                            if (Model != null && !Model.IsValidEmail)
+                            {
+                                <div id="loginErrorMsg" class="alert-error">Email already exists.</div>
+                            }
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                            <div>
+                                <label>Already have an account </label> <a href="/Application/Index">Login</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
