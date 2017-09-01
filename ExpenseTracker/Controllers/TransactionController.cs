@@ -14,7 +14,7 @@ namespace ExpenseTrackerWeb.Controllers
         {
             return View(new TransactionViewModel
             {
-                TransactionDate = DateTime.Now,
+                TransactionDate = DateTime.Now.Date,
                 Categories = GetCategories()
             });
         }
@@ -33,7 +33,7 @@ namespace ExpenseTrackerWeb.Controllers
                     TransactionNote = transactionViewModel.TransactionNote,
                     UserId = UserId
                 };
-                if (transactionViewModel.TransactionReceipts.Any())
+                if (ContainsTransactionReciepts(transactionViewModel))
                 {
                     transactionViewModel.TransactionReceipts.ToList()
                         .ForEach(t =>
@@ -88,6 +88,17 @@ namespace ExpenseTrackerWeb.Controllers
                     Text = x.CategoryName,
                     Value = x.CategoryId.ToString()
                 }).ToList();
+        }
+
+        private bool ContainsTransactionReciepts(TransactionViewModel viewModel)
+        {
+            if (viewModel.TransactionReceipts.Count() == 0 ||
+                (viewModel.TransactionReceipts.Count() == 1 
+                && viewModel.TransactionReceipts.Single() == null))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

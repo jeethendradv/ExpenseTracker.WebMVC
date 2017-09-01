@@ -2,3 +2,7 @@ H:\Projects\ExpenseTracker\ExpenseTrackerWeb.BusinessObjects\bin\Debug\ExpenseTr
 H:\Projects\ExpenseTracker\ExpenseTrackerWeb.BusinessObjects\bin\Debug\ExpenseTrackerWeb.BusinessObjects.pdb
 H:\Projects\ExpenseTracker\ExpenseTrackerWeb.BusinessObjects\obj\Debug\ExpenseTrackerWeb.BusinessObjects.dll
 H:\Projects\ExpenseTracker\ExpenseTrackerWeb.BusinessObjects\obj\Debug\ExpenseTrackerWeb.BusinessObjects.pdb
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTrackerWeb.BusinessObjects\bin\Debug\ExpenseTrackerWeb.BusinessObjects.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTrackerWeb.BusinessObjects\bin\Debug\ExpenseTrackerWeb.BusinessObjects.pdb
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTrackerWeb.BusinessObjects\obj\Debug\ExpenseTrackerWeb.BusinessObjects.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTrackerWeb.BusinessObjects\obj\Debug\ExpenseTrackerWeb.BusinessObjects.pdb

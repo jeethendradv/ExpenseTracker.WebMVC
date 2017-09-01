@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="TransactionDate" class="control-label">Date</label>
-                                @Html.TextBoxFor(m => m.TransactionDate, new { @class = "form-control", id= "transactionDate" })
+                                @Html.TextBoxFor(m => m.TransactionDate, "{0:dd/MM/yyyy}", new { @class = "form-control", id= "transactionDate" })
                                 @Html.ValidationMessageFor(m => m.TransactionDate)
                             </div>
                             <div class="form-group">
@@ -35,8 +35,13 @@
                                 @Html.ValidationMessageFor(m => m.TransactionNote)
                             </div>
                             <div class="form-group">
-                                <label for="TransactionReceipts" class="control-label">Upload Receipts</label>
-                                <input type="file" id="TransactionReceipts" name="TransactionReceipts" multiple="multiple"/>
+                                <label for="fileupload" class="control-label">Upload Receipts</label><br/>
+                                <input type="button" id="fileupload" value="Upload" />                                                               
+                                <input type="file" accept="image/*" id="TransactionReceipts" name="TransactionReceipts" multiple="multiple" style="display:none;"/>
+                            </div>
+                            <div class="form-group" style="display:block;">
+                                <div id="fileNames">
+                                </div> 
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Save</button>
@@ -47,6 +52,13 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="hide" id="fileLabelTemplate">
+    <span class="tag label label-info fileNameTemplate">
+        <span class="filename"></span>
+        @*<a class="removeFile" filename=""><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>*@
+    </span>
 </div>
 
 <div class="hide">

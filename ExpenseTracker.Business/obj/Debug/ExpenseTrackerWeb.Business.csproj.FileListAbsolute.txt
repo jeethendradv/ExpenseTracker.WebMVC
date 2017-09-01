@@ -8,3 +8,13 @@ H:\Projects\ExpenseTracker\ExpenseTracker.Business\bin\Debug\AutoMapper.xml
 H:\Projects\ExpenseTracker\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.csprojResolveAssemblyReference.cache
 H:\Projects\ExpenseTracker\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.dll
 H:\Projects\ExpenseTracker\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.pdb
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\ExpenseTrackerWeb.Business.dll.config
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\ExpenseTrackerWeb.Business.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\ExpenseTrackerWeb.Business.pdb
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\AutoMapper.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\ExpenseTrackerWeb.BusinessObjects.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\ExpenseTrackerWeb.BusinessObjects.pdb
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\bin\Debug\AutoMapper.xml
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.csprojResolveAssemblyReference.cache
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.dll
+H:\Projects\ExpenseTracker.WebMVC\ExpenseTracker.Business\obj\Debug\ExpenseTrackerWeb.Business.pdb

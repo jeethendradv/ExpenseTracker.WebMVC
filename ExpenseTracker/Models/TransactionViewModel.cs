@@ -15,7 +15,6 @@ namespace ExpenseTrackerWeb.Models
 
         [Required(ErrorMessage = "Please enter transaction date.")]
         [DataType(DataType.DateTime, ErrorMessage = "Please enter the correct date.")]
-        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime TransactionDate { get; set; }
 
         public string TransactionNote { get; set; }

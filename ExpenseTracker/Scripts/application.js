@@ -1,11 +1,30 @@
 ﻿$(function () {
     $(".controlgroup").controlgroup();
-    $("#transactionDate").datepicker({ dateFormat: 'dd/mm/yy' });
+    $("#transactionDate").datepicker({ dateFormat: 'dd-mm-yy' });
     $(".addCategory").click(function () {
         resetDialog();      
         $("#addCategory").dialog({
             modal: true
         });
+    });
+
+    $("#fileupload").click(function () {
+        $("#TransactionReceipts").click();
+    });
+
+    $("#TransactionReceipts").change(function (event) {
+        //clearRemovefileEvents();
+        var length = event.target.files.length;
+        var filenames = $("#fileNames");
+        filenames.html("");
+        for (var index = 0; index < length; index++) {
+            var file = event.target.files[index];
+            var fileNameTemplate = $('#fileLabelTemplate .fileNameTemplate').clone();
+            fileNameTemplate.find(".filename").html(file.name);
+            fileNameTemplate.find(".removeFile").attr("filename", file.name);
+            filenames.append(fileNameTemplate);
+        }
+        //initialiseRemoveFileEvents();
     });
 
     $(".saveCategory").click(function () {
@@ -18,6 +37,17 @@
         checkNameExistsAndSave();
     });
     initialiseCalanderControl();
+
+    function clearRemovefileEvents() {
+        $(".removeFile").unbind("click");
+    }
+
+    function initialiseRemoveFileEvents() {
+        $(".removeFile").click(function (event) {
+            var filename = event.currentTarget.getAttribute("filename");
+            // TODO: need to figure out how to remove the file from FileList object or convert the upload to AJAX.
+        });
+    }
 
     function resetDialog() {
         $("#newCategory").val("");
