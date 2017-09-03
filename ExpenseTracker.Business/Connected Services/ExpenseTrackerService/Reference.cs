@@ -496,6 +496,18 @@ namespace ExpenseTrackerWeb.Business.ExpenseTrackerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransactions", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionsResponse")]
         System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO[]> GetTransactionsAsync(ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionSearchCriteriaDTO searchCriteria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransactionReceipts", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionReceiptsResponse")]
+        ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionReceiptDTO[] GetTransactionReceipts(int transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransactionReceipts", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionReceiptsResponse")]
+        System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionReceiptDTO[]> GetTransactionReceiptsAsync(int transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransaction", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionResponse")]
+        ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO GetTransaction(int transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransaction", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionResponse")]
+        System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO> GetTransactionAsync(int transactionId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -563,6 +575,22 @@ namespace ExpenseTrackerWeb.Business.ExpenseTrackerService {
         
         public System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO[]> GetTransactionsAsync(ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionSearchCriteriaDTO searchCriteria) {
             return base.Channel.GetTransactionsAsync(searchCriteria);
+        }
+        
+        public ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionReceiptDTO[] GetTransactionReceipts(int transactionId) {
+            return base.Channel.GetTransactionReceipts(transactionId);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionReceiptDTO[]> GetTransactionReceiptsAsync(int transactionId) {
+            return base.Channel.GetTransactionReceiptsAsync(transactionId);
+        }
+        
+        public ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO GetTransaction(int transactionId) {
+            return base.Channel.GetTransaction(transactionId);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO> GetTransactionAsync(int transactionId) {
+            return base.Channel.GetTransactionAsync(transactionId);
         }
     }
 }
