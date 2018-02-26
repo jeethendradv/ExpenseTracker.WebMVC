@@ -70,5 +70,15 @@ namespace ExpenseTrackerWeb.Business
                 return client.CategoryExists(name);
             }
         }
+
+        public void DeleteTransaction(int transactionId)
+        {
+            ExpenseTrackerServiceClient client = new ExpenseTrackerServiceClient();
+            using (new System.ServiceModel.OperationContextScope(client.InnerChannel))
+            {
+                AddAuthTokenHeader();
+                client.DeleteTransaction(transactionId);
+            }
+        }
     }
 }

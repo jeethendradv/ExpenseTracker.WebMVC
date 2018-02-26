@@ -53,6 +53,13 @@ namespace ExpenseTrackerWeb.Controllers
         }
 
         [HttpPost]
+        public void Delete(int transactionId)
+        {
+            TransactionBuilder transaction = new TransactionBuilder(AuthToken);
+            transaction.DeleteTransaction(transactionId);
+        }
+
+        [HttpPost]
         public void AddCategory(string name)
         {
             TransactionBuilder transaction = new TransactionBuilder(AuthToken);

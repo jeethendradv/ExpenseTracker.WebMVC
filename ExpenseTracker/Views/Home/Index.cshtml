@@ -63,7 +63,7 @@
                             <span class="glyphicon glyphicon-picture hoverHand"></span>
                         }
                         <span class="glyphicon glyphicon-pencil hoverHand"></span>
-                        <span class="glyphicon glyphicon-remove hoverHand"></span>                                                
+                        <span class="glyphicon glyphicon-remove hoverHand deleteExpense" transactionId="@transactionItem.TransactionId"></span>                                                
                     </td>
                 </tr>
                 }
@@ -72,5 +72,11 @@
     </div>
     <div class="col-md-6">
         <img src="~/_ChartFiles/chart.jpg" />
+    </div>
+</div>
+
+<div class="hide">
+    <div id="deleteExpense" title="Delete Expense">
+        <span>Are you sure you want to delete this expense?</span>
     </div>
 </div>

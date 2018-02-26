@@ -15,6 +15,7 @@ namespace ExpenseTrackerWeb.Models
                 {
                     Transactions.Add(new TransactionItemViewModel
                     {
+                        TransactionId = t.TransactionId,
                         TransactionDate = t.TransactionDate,
                         TransactionName = t.TransactionCategory.CategoryName,
                         TransactionAmount = t.TransactionAmount,

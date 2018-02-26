@@ -37,6 +37,35 @@
         checkNameExistsAndSave();
     });
     initialiseCalanderControl();
+    bindDeleteExpenseEvent();
+
+    function bindDeleteExpenseEvent() {
+        $(".deleteExpense").click(function (event) {
+            var transactionId = this.getAttribute("transactionId");
+            $("#deleteExpense").dialog({
+                modal: true,
+                buttons: {
+                    "Yes": function () {
+                        $.ajax({
+                            method: "POST",
+                            url: "/Transaction/Delete",
+                            data: { transactionId: transactionId }
+                        }).done(function () {
+                            calendarClick();
+                            $("#deleteExpense").dialog("close");
+                        });
+                    },
+                    "No": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    }
+
+    function clearBindDeleteExpenseEvent() {
+        $(".deleteExpense").unbind("click");
+    }
 
     function clearRemovefileEvents() {
         $(".removeFile").unbind("click");
@@ -194,6 +223,8 @@
             $(".transactions").html(html);
             var totalExpense = $("#totalExpHidden").val();
             $("#totalExpLabel").html("Total Expenses: $" + totalExpense);
+            clearBindDeleteExpenseEvent();
+            bindDeleteExpenseEvent();
         });
     }
 

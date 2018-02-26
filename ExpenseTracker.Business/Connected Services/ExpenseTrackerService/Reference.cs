@@ -508,6 +508,12 @@ namespace ExpenseTrackerWeb.Business.ExpenseTrackerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/GetTransaction", ReplyAction="http://tempuri.org/IExpenseTrackerService/GetTransactionResponse")]
         System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO> GetTransactionAsync(int transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/DeleteTransaction", ReplyAction="http://tempuri.org/IExpenseTrackerService/DeleteTransactionResponse")]
+        void DeleteTransaction(int transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseTrackerService/DeleteTransaction", ReplyAction="http://tempuri.org/IExpenseTrackerService/DeleteTransactionResponse")]
+        System.Threading.Tasks.Task DeleteTransactionAsync(int transactionId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -591,6 +597,14 @@ namespace ExpenseTrackerWeb.Business.ExpenseTrackerService {
         
         public System.Threading.Tasks.Task<ExpenseTrackerWeb.Business.ExpenseTrackerService.TransactionDTO> GetTransactionAsync(int transactionId) {
             return base.Channel.GetTransactionAsync(transactionId);
+        }
+        
+        public void DeleteTransaction(int transactionId) {
+            base.Channel.DeleteTransaction(transactionId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTransactionAsync(int transactionId) {
+            return base.Channel.DeleteTransactionAsync(transactionId);
         }
     }
 }
